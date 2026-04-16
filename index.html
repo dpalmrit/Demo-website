@@ -481,15 +481,7 @@
         Params={<span class="str">'Bucket'</span>: BUCKET, <span class="str">'Key'</span>: event[<span class="str">'s3_key'</span>]},
         ExpiresIn=<span class="str">300</span>
     )
-    result = vision_model.<span class="fn">analyze</span>(presigned, prompt=prompt)
-    dynamodb.<span class="fn">put_item</span>(TableName=TABLE, Item={
-        <span class="str">'session_uuid'</span>: {<span class="str">'S'</span>: session_uuid},
-        <span class="str">'player_uuid'</span>:  {<span class="str">'S'</span>: player_uuid},
-        <span class="str">'jersey'</span>:       {<span class="str">'N'</span>: jersey},
-        <span class="str">'position'</span>:     {<span class="str">'S'</span>: position},
-        <span class="str">'analysis'</span>:     {<span class="str">'S'</span>: result}
-    })
-    sns.<span class="fn">publish</span>(TopicArn=SNS_TOPIC, Message=<span class="str">'Analysis complete'</span>)</code></pre>
+    
         </figure>
 
       </section>
